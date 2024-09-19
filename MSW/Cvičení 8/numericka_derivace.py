@@ -7,11 +7,11 @@ def func(x):
 def analytic_deriv(x):
     return np.cos(x)
 
-# Dopředná diference (statický krok)
+# Dopředná diference
 def forward_difference(f, x, h):
     return (f(x + h) - f(x)) / h
 
-# Centrální diference (statický krok)
+# Centrální diference
 def central_difference(f, x, h):
     return (f(x + h) - f(x - h)) / (2 * h)
 def adaptive_difference(f, x, tol=1e-6):
@@ -21,8 +21,6 @@ def adaptive_difference(f, x, tol=1e-6):
     while True:
         h /= 2
         deriv = (f(x + h) - f(x - h)) / (2 * h)
-        
-        # Pokud je rozdíl mezi derivacemi menší než tolerance, zastavíme adaptaci kroku
         if np.abs(deriv - prev_deriv) < tol:
             break
         prev_deriv = deriv
@@ -31,12 +29,12 @@ def adaptive_difference(f, x, tol=1e-6):
 
 # Vstupní data
 x_values = np.linspace(0, 2*np.pi, 100)
-h_static = 0.01  # Statický krok
+h_static = 0.01 
 
 # Analytická derivace
 y_analytic = analytic_deriv(x_values)
 
-# Derivace pomocí dopředné a centrální diference (statický krok)
+# Derivace pomocí dopředné a centrální diference
 y_forward_static = forward_difference(func, x_values, h_static)
 y_central_static = central_difference(func, x_values, h_static)
 

@@ -4,7 +4,7 @@ import time
 A = np.array([[3, 2], [1, 4]])
 B = np.array([7, 10])
 
-# Řešení soustavy lineárních rovnic v Pythonu pomocí inverze matice
+# Python pomocí inverze matice
 def inverse_matrix(A):
     n = len(A)
     A = A.astype(float)
@@ -28,7 +28,7 @@ solution_python = A_inv.dot(B)
 end = time.time()
 print(f"Řešení soustavy (Python): {end - start:.6f} s, Řešení: {solution_python}")
 
-# Řešení soustavy lineárních rovnic pomocí NumPy
+# pomocí NumPy
 start = time.time()
 solution_numpy = np.linalg.solve(A, B)
 end = time.time()

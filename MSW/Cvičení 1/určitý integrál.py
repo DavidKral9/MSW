@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import quad
 import time
 
-# Numerický výpočet určitého integrálu v čistém Pythonu (pomocí metody Trapez)
+# metoda Trapez python
 def trapezoidal_rule(f, a, b, n=1000):
     h = (b - a) / n
     result = 0.5 * (f(a) + f(b))
@@ -18,7 +18,7 @@ integral_python = trapezoidal_rule(f, 0, np.pi)
 end = time.time()
 print(f"Numerický integrál (Python): {end - start:.6f} s, Výsledek: {integral_python}")
 
-# Numerický výpočet pomocí SciPy
+# SciPy
 start = time.time()
 result, error = quad(f, 0, np.pi)
 end = time.time()

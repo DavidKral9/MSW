@@ -1,7 +1,7 @@
 import numpy as np
 import time
 
-# Výpočet kořenů polynomu v čistém Pythonu (pomocí numerické metody)
+# numerická metoda python
 def find_roots(coefficients, tolerance=1e-6, max_iterations=1000):
     roots = []
     poly = np.poly1d(coefficients)
@@ -28,7 +28,7 @@ roots_python = find_roots(coefficients)
 end = time.time()
 print(f"Kořeny polynomu (Python): {end - start:.6f} s, Kořeny: {roots_python}")
 
-# Výpočet kořenů polynomu pomocí NumPy
+# NumPy
 start = time.time()
 roots_numpy = np.roots(coefficients)
 end = time.time()

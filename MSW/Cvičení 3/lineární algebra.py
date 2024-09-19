@@ -3,22 +3,21 @@ import matplotlib.pyplot as plt
 import time
 from scipy.sparse.linalg import bicgstab
 
-# Přímá metoda (NumPy `linalg.solve`)
+# Přímá metoda (NumPy)
 def direct_method(A, b):
     return np.linalg.solve(A, b)
 
-# Iterační metoda (Jacobiho metoda implementovaná pomocí `bicgstab`)
+# Iterační metoda (Jacobiho metoda)
 def iterative_method(A, b):
     x, exitCode = bicgstab(A, b, atol=1e-10, maxiter=1000)
     return x
 
-# Generování náhodných čtvercových matic a vektorů
 def generate_matrix_and_vector(size):
     A = np.random.rand(size, size)
     b = np.random.rand(size)
     return A, b
 
-# Měření času a vytváření grafů
+
 matrix_sizes = [10, 50, 100, 200, 500, 1000, 1250, 1500, 1750, 2000]  # Různé velikosti matic
 direct_times = []
 iterative_times = []
